@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Herbal Bliss - Contact Us</title>
+    <!-- Bootstrap CSS for layout and grid system -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons (e.g., leaf, search, social media) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts for Playfair Display and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- External stylesheet for custom styles -->
+    <link rel="stylesheet" href="include/css/style.css">
+</head>
+<body>
+    <!-- Navigation bar with fixed top positioning -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand logo with leaf icon -->
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i> Herbal Bliss
+            </a>
+            <!-- Toggler for mobile menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar content (search and links) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search form -->
+                <div class="search-form ms-auto me-3">
+                    <input type="text" class="search-input" placeholder="Search products...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <!-- Navigation links -->
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                    <!-- Cart icon with count badge -->
+                    <li class="nav-item">
+                        <a class="nav-link cart-icon" href="#">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section for Contact page -->
+    <div class="hero-section">
+        <div class="container hero-content text-center">
+            <h1>Contact Herbal Bliss</h1>
+            <p>Reach Out for Your Wellness Journey</p>
+            <a href="#contact-form" class="hero-btn">Get in Touch</a>
+        </div>
+    </div>
+
+    <!-- Contact section with form and details -->
+    <div class="container my-5" id="contact-form">
+        <div class="row">
+            <!-- Contact form -->
+            <div class="col-lg-6 mb-4">
+                <h3>Send Us a Message</h3>
+                <p style="color: var(--text-secondary);">We’re here to answer your questions and support your wellness goals!</p>
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Name</label>
+                        <input type="text" class="form-control" placeholder="Your Name" style="border-radius: 8px;" required>
+                    </div>
+					 <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Number</label>
+                        <input type="text" class="form-control" placeholder="Your Number" style="border-radius: 8px;" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Email</label>
+                        <input type="email" class="form-control" placeholder="Your Email" style="border-radius: 8px;" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="Tell us about your needs..." style="border-radius: 8px;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn w-100" style="background: linear-gradient(135deg, var(--accent), var(--secondary)); color: white; border-radius: 50px; padding: 0.8rem; font-weight: 600;">Send Message</button>
+                </form>
+            </div>
+            <!-- Contact details and map -->
+            <div class="col-lg-6 mb-4">
+                <h3>Our Contact Details</h3>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone me-2"></i> +91 84578 91564</p>
+                    <p><i class="fas fa-envelope me-2"></i> durveda53@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Ahmedabad, Gujarat, India</p>
+                </div>
+                <!-- Map placeholder (replace with Google Maps embed) -->
+                <div class="map-placeholder mt-4" style="height: 250px; background: #f1f1f1; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: var(--text-secondary); font-style: italic;">Map coming soon (Embed Google Maps here)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with brand info, links, and social icons -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Brand and contact info -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h4><i class="fas fa-leaf"></i> Durveda</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">
+                            Your trusted partner in luxurious Ayurvedic wellness.
+                        </p>
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +91 84578 91564</p>
+                        <p><i class="fas fa-envelope"></i> durveda53@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat</p>
+                    </div>
+                    <!-- Social media icons -->
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!-- Information links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Information</h5>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Blogs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Shop links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Shop</h5>
+                        <ul class="footer-links">
+                            <li><a href="product.html">All Products</a></li>
+                            <li><a href="product.html">Stamina & Vitality</a></li>
+                            <li><a href="product.html">Hair Care</a></li>
+                            <li><a href="product.html">Weight Gain</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Policy links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Policies</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Delivery Info</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer bottom with copyright and payment icons -->
+            <div class="footer-bottom text-center">
+                <p class="mb-2">© 2025 Durveda. All Rights Reserved</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-google-pay"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS for navbar and other interactions -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

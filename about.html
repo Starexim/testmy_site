@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Herbal Bliss - About Us</title>
+    <!-- Bootstrap CSS for layout and grid system -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons (e.g., leaf, search, social media) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts for Playfair Display and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- External stylesheet for custom styles -->
+    <link rel="stylesheet" href="include/css/style.css">
+</head>
+<body>
+    <!-- Navigation bar with fixed top positioning -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand logo with leaf icon -->
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i> Herbal Bliss
+            </a>
+            <!-- Toggler for mobile menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar content (search and links) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search form -->
+                <div class="search-form ms-auto me-3">
+                    <input type="text" class="search-input" placeholder="Search products...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <!-- Navigation links -->
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <!-- Cart icon with count badge -->
+                    <li class="nav-item">
+                        <a class="nav-link cart-icon" href="#">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section with background image and centered content -->
+    <div class="hero-section">
+        <div class="container hero-content text-center">
+            <h1>About Herbal Bliss</h1>
+            <p>Discover the Journey of Ayurvedic Wellness</p>
+            <!-- Button linking to about section -->
+            <a href="#about" class="hero-btn">Learn More</a>
+        </div>
+    </div>
+
+    <!-- About section with brand story and mission/vision/values cards -->
+    <div class="about-section container" id="about">
+        <h2>Our Story</h2>
+        <p>Herbal Bliss was founded in Ahmedabad, Gujarat, with a passion for bringing the ancient wisdom of Ayurveda to modern wellness. Inspired by the power of nature, Herbal Bliss creates luxurious, natural products that nurture the mind, body, and spirit.</p>
+        <p>Every product is crafted with care, blending traditional Ayurvedic principles with the finest ethically sourced herbs. Committed to purity and sustainability, Herbal Bliss delivers authentic, effective solutions for holistic well-being.</p>
+        <!-- Grid of mission, vision, and values cards -->
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="about-card">
+                    <h5>Our Mission</h5>
+                    <p>To empower individuals with natural, Ayurvedic solutions that promote holistic health and well-being.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="about-card">
+                    <h5>Our Vision</h5>
+                    <p>To lead the global wellness movement by making Ayurveda accessible, luxurious, and sustainable.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="about-card">
+                    <h5>Our Values</h5>
+                    <p>Purity, authenticity, and sustainability guide everything we do, from sourcing to delivery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Footer with brand info, links, and social icons -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Brand and contact info -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h4><i class="fas fa-leaf"></i> Durveda</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">
+                            Your trusted partner in luxurious Ayurvedic wellness.
+                        </p>
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +91 84578 91564</p>
+                        <p><i class="fas fa-envelope"></i> durveda53@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat</p>
+                    </div>
+                    <!-- Social media icons -->
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!-- Information links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Information</h5>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Blogs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Shop links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Shop</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html#products">Hair Care</a></li>
+                            <li><a href="index.html#products">Skin Care</a></li>
+                            <li><a href="index.html#products">Male Wellness</a></li>
+                            <li><a href="index.html#products">Women Wellness</a></li>
+                            <li><a href="index.html#products">Weight Gain</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Policy links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Policies</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Delivery Info</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer bottom with copyright and payment icons -->
+            <div class="footer-bottom text-center">
+                <p class="mb-2">© 2025 Durveda. All Rights Reserved</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-google-pay"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Contact modal for user inquiries -->
+    <div class="modal fade" id="contactModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 16px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border: none;">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="padding: 2rem;">
+                    <p style="color: var(--text-secondary);">We'd love to hear from you!</p>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Name</label>
+                        <input type="text" class="form-control" placeholder="Your Name" style="border-radius: 8px;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Email</label>
+                        <input type="email" class="form-control" placeholder="Your Email" style="border-radius: 8px;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Message</label>
+                        <textarea class="form-control" rows="4" placeholder="Your Message" style="border-radius: 8px;"></textarea>
+                    </div>
+                    <button class="btn w-100" style="background: linear-gradient(135deg, var(--accent), var(--secondary)); color: white; border-radius: 50px; padding: 0.8rem; font-weight: 600;">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS for navbar, modal, and other interactions -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript for scroll-to-top and navbar scroll effects -->
+</body>
+</html>

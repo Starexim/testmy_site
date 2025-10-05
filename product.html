@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Herbal Bliss - All Products</title>
+    <!-- Bootstrap CSS for layout and grid system -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons (e.g., leaf, search, social media) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts for Playfair Display and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- External stylesheet for custom styles -->
+    <link rel="stylesheet" href="include/css/style.css">
+</head>
+<body>
+    <!-- Navigation bar with fixed top positioning -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand logo with leaf icon -->
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i> Herbal Bliss
+            </a>
+            <!-- Toggler for mobile menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar content (search and links) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search form -->
+                <div class="search-form ms-auto me-3">
+                    <input type="text" class="search-input" placeholder="Search products..." id="productSearch">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <!-- Navigation links -->
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                    </li>
+                    <!-- Cart icon with count badge -->
+                    <li class="nav-item">
+                        <a class="nav-link cart-icon" href="#">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section for Products page -->
+    <div class="hero-section">
+        
+    </div>
+
+    <!-- Product grid section with sorting -->
+    <div class="container my-5" id="product-grid">
+        <!-- Sorting dropdown -->
+        <div class="row mb-4">
+            <div class="col-12 text-end">
+                <select class="form-select sort-select" id="sortSelect" style="width: auto; display: inline-block; max-width: 200px;">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="discount-high">Best Discounts</option>
+                </select>
+            </div>
+        </div>
+        <!-- Product grid -->
+        <div class="row">
+            <!-- Product 1: Horse Fire Tablets -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="1920" data-discount="36">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">36% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Horse Fire Tablets" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Horse Fire Tablets</h5>
+                        <p class="card-text">Promotes natural energy and daily wellness with ayurvedic herbs</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹1,920</span>
+                            <span class="original-price">₹3,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2: Horse Fire Shilajit Resin -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="749" data-discount="62">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">62% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Horse Fire Shilajit Resin" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Horse Fire Shilajit Resin</h5>
+                        <p class="card-text">Himalayan origin pure 20g resin for vigor and vitality</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹749</span>
+                            <span class="original-price">₹2,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3: Bull Rider Capsule -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="999" data-discount="50">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">50% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1522529590739-aca66d6e70a6?w=400" alt="Bull Rider Capsule" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bull Rider Capsule</h5>
+                        <p class="card-text">Supports strength and energy with ayurvedic ingredients</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹999</span>
+                            <span class="original-price">₹2,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4: Horse Fire Capsule -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="1999" data-discount="66">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">66% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="Horse Fire Capsule" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Horse Fire Capsule</h5>
+                        <p class="card-text">Promotes natural energy and daily wellness for men</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹1,999</span>
+                            <span class="original-price">₹6,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 5: Horse Fire Oil -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="1349" data-discount="55">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">55% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" alt="Horse Fire Oil" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Horse Fire Oil</h5>
+                        <p class="card-text">Ayurvedic massage oil for strength and male wellness</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹1,349</span>
+                            <span class="original-price">₹3,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 6: Horse Fire Capsule & Oil -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="2349" data-discount="47">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">47% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Horse Fire Capsule & Oil" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Horse Fire Capsule & Oil</h5>
+                        <p class="card-text">Combo pack for comprehensive stamina and wellness</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹2,349</span>
+                            <span class="original-price">₹4,500</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 7: Knight Rider Tablet -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="2000" data-discount="50">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">50% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1522529590739-aca66d6e70a6?w=400" alt="Knight Rider Tablet" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Knight Rider Tablet</h5>
+                        <p class="card-text">Blend of 16 herbs to support strength and energy</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹2,000</span>
+                            <span class="original-price">₹4,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 8: Ashwarin Plus Powder -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="1499" data-discount="62">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">62% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400" alt="Ashwarin Plus Powder" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ashwarin Plus Powder</h5>
+                        <p class="card-text">Ayurvedic weight and muscle gain powder for men</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹1,499</span>
+                            <span class="original-price">₹4,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 9: Philagra Capsules -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="2000" data-discount="33">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">33% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="Philagra Capsules" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Philagra Capsules</h5>
+                        <p class="card-text">Vigor and vitality capsules for men, 60 capsules</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹2,000</span>
+                            <span class="original-price">₹3,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 10: Max Man Tablet -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="2000" data-discount="33">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">33% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Max Man Tablet" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Max Man Tablet</h5>
+                        <p class="card-text">Ayurvedic medicine for stamina and power</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹2,000</span>
+                            <span class="original-price">₹3,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 11: Onion Shampoo -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="1090" data-discount="8">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">8% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400" alt="Onion Shampoo" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Onion Shampoo</h5>
+                        <p class="card-text">For strong and thick hair, reduces hair fall</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹1,090</span>
+                            <span class="original-price">₹1,190</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 12: Ashwashakti Powder -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-price="2000" data-discount="37">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <span class="discount-badge">37% OFF</span>
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400" alt="Ashwashakti Powder" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ashwashakti Powder</h5>
+                        <p class="card-text">Ayurvedic weight and muscle gain powder for men</p>
+                        <div class="price-wrapper">
+                            <span class="current-price">₹2,000</span>
+                            <span class="original-price">₹3,200</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <nav aria-label="Product pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust section for customer confidence -->
+    <div class="trust-section">
+        <div class="container">
+            <p class="trust-tagline">Trusted by Thousands for Ayurvedic Wellness</p>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h5>Fast Delivery</h5>
+                        <p>2-3 days across India</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h5>Easy Returns</h5>
+                        <p>15-day satisfaction guarantee</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h5>Secure Payments</h5>
+                        <p>SSL encrypted transactions</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>100% Natural</h5>
+                        <p>Certified organic ingredients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with brand info, links, and social icons -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Brand and contact info -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h4><i class="fas fa-leaf"></i> Durveda</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">
+                            Your trusted partner in luxurious Ayurvedic wellness.
+                        </p>
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +91 84578 91564</p>
+                        <p><i class="fas fa-envelope"></i> durveda53@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat</p>
+                    </div>
+                    <!-- Social media icons -->
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!-- Information links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Information</h5>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Blogs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Shop links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Shop</h5>
+                        <ul class="footer-links">
+                            <li><a href="product.html">All Products</a></li>
+                            <li><a href="product.html">Stamina & Vitality</a></li>
+                            <li><a href="product.html">Hair Care</a></li>
+                            <li><a href="product.html">Weight Gain</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Policy links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Policies</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Delivery Info</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer bottom with copyright and payment icons -->
+            <div class="footer-bottom text-center">
+                <p class="mb-2">© 2025 Durveda. All Rights Reserved</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-google-pay"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Contact modal for user inquiries -->
+    <div class="modal fade" id="contactModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 16px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border: none;">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="padding: 2rem;">
+                    <p style="color: var(--text-secondary);">We're here to help with your wellness journey!</p>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Name</label>
+                        <input type="text" class="form-control" placeholder="Your Name" style="border-radius: 8px;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Email</label>
+                        <input type="email" class="form-control" placeholder="Your Email" style="border-radius: 8px;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="font-weight: 500;">Message</label>
+                        <textarea class="form-control" rows="4" placeholder="Tell us about your wellness goals..." style="border-radius: 8px;"></textarea>
+                    </div>
+                    <button class="btn w-100" style="background: linear-gradient(135deg, var(--accent), var(--secondary)); color: white; border-radius: 50px; padding: 0.8rem; font-weight: 600;">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS for navbar, modal, and other interactions -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript for sorting, search, and interactions -->
+   
+</body>
+</html>
