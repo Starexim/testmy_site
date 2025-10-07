@@ -1505,12 +1505,13 @@
                 });
             }
 
-            notificationBell.addEventListener('click', function() {
+            notificationBell.addEventListener('click', function(e) {
+                e.stopPropagation();
                 notificationPanel.classList.toggle('active');
             });
 
             document.addEventListener('click', function(e) {
-                if (!notificationBell.contains(e.target) && !notificationPanel.contains(e.target)) {
+                if (!notificationBell.contains(e.target)) {
                     notificationPanel.classList.remove('active');
                 }
             });
