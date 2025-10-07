@@ -220,12 +220,15 @@
             background: linear-gradient(180deg, var(--primary-dark), var(--primary));
             color: white;
             position: fixed;
+            top: 0;
+            left: 0;
             height: 100vh;
             overflow-y: auto;
             overflow-x: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
             box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            padding-bottom: 2rem;
         }
 
         .admin-sidebar::-webkit-scrollbar {
@@ -595,18 +598,23 @@
             transform: translateY(-2px);
         }
 
+        .topbar-right {
+            position: relative;
+        }
+
         .notification-panel {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 0.5rem);
             right: 0;
             width: 320px;
+            max-height: 500px;
+            overflow-y: auto;
             background: white;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 0.5rem 0;
-            margin-top: 0.5rem;
-            z-index: 1000;
+            z-index: 1100;
             display: none;
         }
 
@@ -614,14 +622,28 @@
             display: block;
         }
 
+        .notification-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .notification-panel::-webkit-scrollbar-track {
+            background: #f0f0f0;
+        }
+
+        .notification-panel::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
         @media (max-width: 992px) {
             .notification-panel {
                 position: fixed;
-                top: 0;
+                top: 74px;
                 right: 0;
-                width: 80%;
-                max-width: 320px;
-                height: 100vh;
+                width: 90%;
+                max-width: 350px;
+                height: calc(100vh - 74px);
+                max-height: calc(100vh - 74px);
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
                 background: white;
@@ -630,11 +652,12 @@
                 box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
                 padding: 1rem;
                 margin: 0;
-                z-index: 1001;
+                z-index: 1100;
                 overflow-y: auto;
             }
 
             .notification-panel.active {
+                display: block;
                 transform: translateX(0);
             }
 
