@@ -6,7 +6,7 @@
     <title>Admin Dashboard - Herbal Bliss</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -19,7 +19,6 @@
             --text-secondary: #6C757D;
             --sidebar-width: 280px;
             --sidebar-collapsed-width: 80px;
-            --sidebar-mobile-width: 300px;
         }
 
         body {
@@ -33,7 +32,7 @@
             min-height: 100vh;
         }
 
-        /* Hamburger Button - Desktop Only */
+        /* Enhanced Hamburger Button - Always Visible */
         .hamburger-btn {
             position: fixed;
             top: 1.2rem;
@@ -99,12 +98,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.7);
             backdrop-filter: blur(5px);
             z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             display: none;
         }
 
@@ -119,51 +118,32 @@
             }
 
             .hamburger-btn {
-                display: none; /* Hide desktop hamburger on mobile */
+                left: 1rem;
+                top: 1rem;
+                background: rgba(255,255,255,0.95);
+                color: var(--primary);
+                border-color: rgba(255,255,255,0.3);
+                z-index: 1003;
+                width: 50px;
+                height: 50px;
+                padding: 5px;
             }
-
-            .hamburger-btn-mobile {
-                width: 32px;
-                height: 32px;
-                background: transparent;
-                border: none;
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 4px;
-                padding: 0;
-                margin-right: 0.4rem;
-                flex-shrink: 0;
+            
+            .hamburger-btn.collapsed {
+                left: auto;
+                right: 1rem;
+                background: rgba(255,255,255,0.95);
             }
-
-            .hamburger-btn-mobile .hamburger-line {
-                width: 18px;
-                height: 2px;
+            
+            .hamburger-btn:hover {
                 background: white;
-                border-radius: 3px;
+                color: var(--primary);
             }
-
-            .hamburger-btn-mobile.collapsed .hamburger-line:nth-child(1) {
-                transform: translateY(5px) rotate(45deg);
-            }
-
-            .hamburger-btn-mobile.collapsed .hamburger-line:nth-child(2) {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            .hamburger-btn-mobile.collapsed .hamburger-line:nth-child(3) {
-                transform: translateY(-5px) rotate(-45deg);
-            }
-
+            
             .admin-sidebar {
-                width: var(--sidebar-mobile-width);
                 transform: translateX(-100%);
-                transition: transform 0.3s ease, opacity 0.3s ease;
+                transition: transform 0.4s ease, opacity 0.3s ease;
                 opacity: 0;
-                z-index: 1001;
             }
 
             .admin-sidebar.active {
@@ -179,232 +159,10 @@
             .admin-main {
                 margin-left: 0 !important;
             }
-
-            /* Single-Line Mobile Top Bar */
-            .admin-topbar {
-                padding: 0.5rem 0.8rem;
-                height: 48px;
-                background: linear-gradient(135deg, #065f46, #34d399);
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-                border-radius: 0 0 6px 6px;
-                position: sticky;
-                top: 0;
-                z-index: 998;
-                overflow: hidden; /* Prevent wrapping */
-            }
-
-            .topbar-left {
-                display: flex;
-                align-items: center;
-                flex: 1;
-                justify-content: flex-start;
-                min-width: 0; /* Prevent overflow */
-            }
-
-            .topbar-left h5 {
-                font-size: 0.9rem;
-                font-weight: 600;
-                color: white;
-                margin: 0;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 40vw; /* Limit title width */
-            }
-
-            .topbar-left h5 i {
-                font-size: 0.85rem;
-                color: var(--accent);
-                margin-right: 0.3rem;
-                flex-shrink: 0;
-            }
-
-            .topbar-right {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                flex-shrink: 0;
-            }
-
-            .notification-bell {
-                padding: 0.3rem;
-                border-radius: 50%;
-                background: rgba(255,255,255,0.15);
-                transition: background 0.3s ease;
-                width: 28px;
-                height: 28px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-            }
-
-            .notification-bell:hover {
-                background: rgba(255,255,255,0.25);
-            }
-
-            .notification-bell i {
-                font-size: 0.9rem;
-                color: white;
-            }
-
-            .notification-bell .badge {
-                font-size: 0.45rem;
-                min-width: 10px;
-                height: 10px;
-                top: -2px;
-                right: -2px;
-                background: var(--accent);
-                color: var(--primary-dark);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                padding: 0;
-            }
-
-            .notification-panel {
-                width: 90%;
-                max-width: 260px;
-                right: 0.5rem;
-                max-height: 300px;
-                overflow-y: auto;
-                border-radius: 6px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                margin-top: 0.3rem;
-                background: white;
-                border: none;
-            }
-
-            .notification-item {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.7rem;
-            }
-
-            .notification-item .icon {
-                width: 18px;
-                height: 18px;
-                font-size: 0.75rem;
-                margin-right: 0.4rem;
-            }
-
-            .admin-profile {
-                padding: 0.3rem;
-                border-radius: 50%;
-                background: rgba(255,255,255,0.15);
-                transition: background 0.3s ease;
-                width: 28px;
-                height: 28px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-            }
-
-            .admin-profile:hover {
-                background: rgba(255,255,255,0.25);
-            }
-
-            .admin-avatar {
-                width: 24px;
-                height: 24px;
-                font-size: 0.7rem;
-                background: var(--accent);
-                color: var(--primary-dark);
-                box-shadow: none;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .admin-info {
-                display: none; /* Hide name/role */
-            }
-
-            .dropdown-menu {
-                min-width: 130px;
-                font-size: 0.75rem;
-                border-radius: 6px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                background: white;
-                border: none;
-            }
-
-            .dropdown-item {
-                padding: 0.3rem 0.8rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .table th, .table td {
-                font-size: 0.85rem;
-                padding: 0.5rem;
-            }
-
-            .stat-card {
-                padding: 1rem;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-
-            .dashboard-content {
-                padding: 1rem;
-            }
-
-            /* Ensure single line on very small screens */
-            @media (max-width: 360px) {
-                .topbar-left h5 {
-                    font-size: 0.85rem;
-                    max-width: 30vw;
-                }
-                .topbar-left h5 i {
-                    font-size: 0.8rem;
-                    margin-right: 0.2rem;
-                }
-                .hamburger-btn-mobile {
-                    width: 28px;
-                    height: 28px;
-                    margin-right: 0.3rem;
-                }
-                .hamburger-btn-mobile .hamburger-line {
-                    width: 16px;
-                }
-                .notification-bell, .admin-profile {
-                    width: 26px;
-                    height: 26px;
-                }
-                .notification-bell i {
-                    font-size: 0.85rem;
-                }
-                .admin-avatar {
-                    width: 22px;
-                    height: 22px;
-                    font-size: 0.65rem;
-                }
-                .notification-bell .badge {
-                    min-width: 9px;
-                    height: 9px;
-                    font-size: 0.4rem;
-                    top: -1px;
-                    right: -1px;
-                }
-            }
         }
 
         @media (min-width: 993px) {
             .sidebar-close-btn {
-                display: none !important;
-            }
-            .hamburger-btn-mobile {
                 display: none !important;
             }
         }
@@ -548,8 +306,7 @@
         }
 
         .sidebar-header h4 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
             color: var(--accent);
             margin: 0;
             display: flex;
@@ -603,7 +360,6 @@
             border-left: 3px solid transparent;
             cursor: pointer;
             position: relative;
-            touch-action: manipulation;
         }
 
         .menu-item-content {
@@ -673,7 +429,6 @@
             transition: all 0.3s ease;
             font-size: 0.9rem;
             border-left: 3px solid transparent;
-            touch-action: manipulation;
         }
 
         .submenu-item:hover {
@@ -726,7 +481,7 @@
         }
 
         .admin-topbar {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             padding: 1.15rem 2rem;
             box-shadow: 0 2px 12px rgba(0,0,0,0.15);
             display: flex;
@@ -764,7 +519,6 @@
             position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
-            touch-action: manipulation;
         }
 
         .notification-bell .badge {
@@ -876,7 +630,6 @@
             padding: 0.5rem;
             border-radius: 8px;
             transition: all 0.3s ease;
-            touch-action: manipulation;
         }
 
         .admin-profile:hover {
@@ -1056,7 +809,7 @@
     </style>
 </head>
 <body>
-    <!-- Hamburger Button - Desktop Only -->
+    <!-- Hamburger Button - Always Visible -->
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar menu">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -1067,7 +820,7 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="admin-wrapper">
-        <!-- Sidebar -->
+        <!-- Enhanced Sidebar -->
         <aside class="admin-sidebar" id="adminSidebar">
             <div class="sidebar-header">
                 <button class="sidebar-close-btn" id="sidebarCloseBtn"><i class="fas fa-times"></i></button>
@@ -1230,12 +983,7 @@
             <!-- Top Bar -->
             <div class="admin-topbar" id="adminTopbar">
                 <div class="topbar-left">
-                    <button class="hamburger-btn-mobile" id="hamburgerBtnMobile" aria-label="Toggle sidebar menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <h5><i class="fas fa-leaf"></i> Herbal Bliss</h5>
+                    <h5><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h5>
                 </div>
                 <div class="topbar-right">
                     <div class="notification-bell position-relative" id="notificationBell">
@@ -1245,47 +993,52 @@
                             <div class="notification-item new">
                                 <div class="icon"><i class="fas fa-shopping-cart"></i></div>
                                 <div>
-                                    <span>New Order</span><br>
-                                    <span class="time">2 mins ago - #ORD-1005</span>
+                                    <span>New Order Received</span><br>
+                                    <span class="time">2 minutes ago - Order #ORD-1005 from Rahul Sharma</span>
                                 </div>
                             </div>
                             <div class="notification-item new">
                                 <div class="icon"><i class="fas fa-user-plus"></i></div>
                                 <div>
-                                    <span>New Customer</span><br>
-                                    <span class="time">15 mins ago - Priya Patel</span>
+                                    <span>New Customer Registration</span><br>
+                                    <span class="time">15 minutes ago - Priya Patel just signed up</span>
                                 </div>
                             </div>
                             <div class="notification-item alert">
                                 <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
                                 <div>
-                                    <span>Low Stock</span><br>
-                                    <span class="time">1 hr ago - Hair Oil</span>
+                                    <span>Low Stock Alert</span><br>
+                                    <span class="time">1 hour ago - Hair Oil is running low on stock</span>
                                 </div>
                             </div>
                             <div class="notification-item review">
                                 <div class="icon"><i class="fas fa-star"></i></div>
                                 <div>
-                                    <span>New Review</span><br>
-                                    <span class="time">5 hrs ago - Horse Fire</span>
+                                    <span>New Review Received</span><br>
+                                    <span class="time">5 hours ago - 5-star review on Horse Fire Tablets</span>
                                 </div>
                             </div>
                             <div class="notification-item">
                                 <div class="icon"><i class="fas fa-check"></i></div>
                                 <div>
                                     <span>Order Processed</span><br>
-                                    <span class="time">10 hrs ago - #ORD-1004</span>
+                                    <span class="time">10 hours ago - Order #ORD-1004</span>
                                     <span class="mark-read">Mark as read</span>
                                 </div>
                             </div>
                             <div class="notification-item text-center">
-                                <a href="#" style="color: var(--primary); text-decoration: none;">View All</a>
+                                <a href="#" style="color: var(--primary); text-decoration: none;">View All Notifications</a>
                             </div>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="admin-profile" id="adminProfileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="admin-avatar">AD</div>
+                            <div class="admin-info">
+                                <div class="name">Admin User</div>
+                                <div class="role">Super Admin</div>
+                            </div>
+                            <i class="fas fa-chevron-down ms-2" style="color: var(--accent);"></i>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminProfileDropdown">
                             <li><a class="dropdown-item" href="#profile"><i class="fas fa-user"></i> My Profile</a></li>
@@ -1493,7 +1246,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const hamburgerBtnMobile = document.getElementById('hamburgerBtnMobile');
             const sidebar = document.getElementById('adminSidebar');
             const adminMain = document.getElementById('adminMain');
             const overlay = document.getElementById('sidebarOverlay');
@@ -1509,7 +1261,7 @@
 
             function toggleSidebar() {
                 if (isMobile()) {
-                    hamburgerBtnMobile.classList.toggle('collapsed');
+                    hamburgerBtn.classList.toggle('collapsed');
                     sidebar.classList.toggle('active');
                     overlay.classList.toggle('active');
                     adminTopbar.classList.toggle('sidebar-active');
@@ -1525,7 +1277,6 @@
             }
 
             hamburgerBtn.addEventListener('click', toggleSidebar);
-            hamburgerBtnMobile.addEventListener('click', toggleSidebar);
 
             if (sidebarCloseBtn) {
                 sidebarCloseBtn.addEventListener('click', toggleSidebar);
@@ -1545,7 +1296,7 @@
                         sidebar.classList.remove('collapsed');
                         adminMain.classList.remove('sidebar-collapsed');
                         if (!sidebar.classList.contains('active')) {
-                            hamburgerBtnMobile.classList.remove('collapsed');
+                            hamburgerBtn.classList.remove('collapsed');
                             adminTopbar.classList.remove('sidebar-active');
                         }
                     } else {
@@ -1583,13 +1334,10 @@
 
             const submenuItems = document.querySelectorAll('.submenu-item');
             submenuItems.forEach(item => {
-                item.addEventListener('click', function(e) {
+                item.addEventListener('click', function() {
                     if (isMobile()) {
                         toggleSidebar();
                     }
-                });
-                item.addEventListener('touchstart', function(e) {
-                    e.stopPropagation();
                 });
             });
 
@@ -1599,9 +1347,6 @@
                     if (isMobile()) {
                         toggleSidebar();
                     }
-                });
-                item.addEventListener('touchstart', function(e) {
-                    e.stopPropagation();
                 });
             });
 
@@ -1668,6 +1413,9 @@
                     this.style.display = 'none';
                 });
             });
+
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
         });
     </script>
 </body>
