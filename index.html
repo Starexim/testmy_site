@@ -118,8 +118,7 @@
             }
 
             .hamburger-btn {
-                left: auto;
-                right: 1rem;
+                left: 1rem;
                 top: 1rem;
                 background: rgba(255,255,255,0.95);
                 color: var(--primary);
@@ -131,7 +130,9 @@
             }
             
             .hamburger-btn.collapsed {
+                left: auto;
                 right: 1rem;
+                background: rgba(255,255,255,0.95);
             }
             
             .hamburger-btn:hover {
@@ -163,6 +164,49 @@
         @media (min-width: 993px) {
             .sidebar-close-btn {
                 display: none !important;
+            }
+        }
+
+        /* Sidebar Close Button Styles */
+        .sidebar-close-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1003;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-close-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 992px) {
+            .sidebar-close-btn {
+                display: flex;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(20px);
+                transition: all 0.4s ease;
+            }
+
+            .admin-sidebar.active + .sidebar-close-btn {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0);
             }
         }
 
@@ -547,8 +591,8 @@
         }
 
         .notification-panel {
-            position: fixed;
-            top: 74px;
+            position: absolute;
+            top: 100%;
             right: 0;
             width: 320px;
             background: white;
@@ -556,21 +600,51 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 0.5rem 0;
+            margin-top: 0.5rem;
             z-index: 1000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            display: block;
+            display: none;
         }
 
         .notification-panel.active {
-            transform: translateX(0);
+            display: block;
         }
 
+        /* Notification Panel for Mobile View */
         @media (max-width: 992px) {
             .notification-panel {
-                top: 70px;
-                width: 280px;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                background: white;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px 0 0 8px;
+                box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+                padding: 1rem;
+                margin: 0;
+                z-index: 1001;
+                overflow-y: auto;
+            }
+
+            .notification-panel.active {
+                transform: translateX(0);
+            }
+
+            .notification-panel::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .notification-panel::-webkit-scrollbar-track {
+                background: #f0f0f0;
+            }
+
+            .notification-panel::-webkit-scrollbar-thumb {
+                background: var(--primary);
+                border-radius: 3px;
             }
         }
 
@@ -814,10 +888,6 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(10, 92, 62, 0.3);
         }
-
-        .sidebar-close-btn {
-            display: none !important;
-        }
     </style>
 </head>
 <body>
@@ -832,6 +902,9 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="admin-wrapper">
+        <!-- Sidebar Close Button - Moved Outside Sidebar -->
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar"><i class="fas fa-times"></i></button>
+
         <!-- Enhanced Sidebar -->
         <aside class="admin-sidebar" id="adminSidebar">
             <div class="sidebar-header">
@@ -1261,6 +1334,7 @@
             const adminMain = document.getElementById('adminMain');
             const overlay = document.getElementById('sidebarOverlay');
             const dropdowns = document.querySelectorAll('.dropdown-menu-item');
+            const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
             const adminTopbar = document.getElementById('adminTopbar');
             const notificationBell = document.getElementById('notificationBell');
             const notificationPanel = document.getElementById('notificationPanel');
@@ -1287,6 +1361,10 @@
             }
 
             hamburgerBtn.addEventListener('click', toggleSidebar);
+
+            if (sidebarCloseBtn) {
+                sidebarCloseBtn.addEventListener('click', toggleSidebar);
+            }
 
             overlay.addEventListener('click', function() {
                 if (isMobile()) {
@@ -1400,8 +1478,7 @@
                 });
             }
 
-            notificationBell.addEventListener('click', function(e) {
-                e.stopPropagation();
+            notificationBell.addEventListener('click', function() {
                 notificationPanel.classList.toggle('active');
             });
 
