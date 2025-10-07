@@ -33,7 +33,7 @@
             min-height: 100vh;
         }
 
-        /* Hamburger Button - Integrated with Top Bar on Mobile */
+        /* Enhanced Hamburger Button - Always Visible */
         .hamburger-btn {
             position: fixed;
             top: 1.2rem;
@@ -119,18 +119,22 @@
             }
 
             .hamburger-btn {
-                position: static; /* Integrate with top bar */
-                margin-right: 0.5rem;
-                width: 40px;
-                height: 40px;
-                background: rgba(255,255,255,0.9);
-                border-color: var(--accent);
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                left: 1rem;
+                top: 0.8rem; /* Moved closer to top for better alignment */
+                background: rgba(255,255,255,0.95);
+                color: var(--primary);
+                border-color: var(--primary);
+                z-index: 1003;
+                width: 48px; /* Slightly larger for mobile */
+                height: 48px;
+                padding: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             }
             
             .hamburger-btn.collapsed {
-                background: var(--accent);
-                color: var(--primary-dark);
+                left: auto;
+                right: 1rem;
+                background: rgba(255,255,255,0.95);
             }
             
             .hamburger-btn:hover {
@@ -160,104 +164,69 @@
                 margin-left: 0 !important;
             }
 
-            /* Enhanced Top Bar for Mobile */
+            /* Improved Top Bar for Mobile */
             .admin-topbar {
-                padding: 0.6rem 0.8rem; /* Tighter padding */
-                height: 56px; /* Shorter height */
-                background: linear-gradient(135deg, var(--primary-dark), var(--primary)); /* Cleaner gradient */
-                display: flex;
+                padding: 0.8rem 1rem; /* Reduced padding for compact look */
+                height: 60px; /* Slightly shorter for mobile */
+                background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); /* Stronger gradient */
+                flex-wrap: nowrap; /* Prevent wrapping */
                 align-items: center;
-                justify-content: space-between;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Subtle shadow */
-                border-bottom: none; /* Remove border for cleaner look */
-            }
-
-            .topbar-left {
-                display: flex;
-                align-items: center;
-                flex: 1;
             }
 
             .topbar-left h5 {
-                font-size: 0.95rem; /* Smaller, bolder title */
-                font-weight: 700;
-                color: white;
-                margin: 0;
+                font-size: 1rem; /* Smaller font size */
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                max-width: 50%; /* Balanced space */
+                max-width: 40%; /* Prevent title from taking too much space */
             }
 
             .topbar-left h5 i {
-                font-size: 0.9rem; /* Smaller icon */
-                color: var(--accent);
-                margin-right: 0.4rem;
+                font-size: 1rem; /* Smaller icon */
             }
 
             .topbar-right {
-                display: flex;
-                align-items: center;
-                gap: 0.8rem; /* Tighter spacing */
+                gap: 1rem; /* Reduced gap for compact layout */
                 flex-shrink: 0;
             }
 
-            .notification-bell {
-                padding: 0.3rem; /* Larger tap target */
-            }
-
             .notification-bell i {
-                font-size: 1rem; /* Smaller icon */
-                color: var(--accent);
+                font-size: 1.1rem; /* Smaller icon */
             }
 
             .notification-bell .badge {
-                font-size: 0.55rem;
-                min-width: 14px;
-                height: 14px;
-                top: -4px;
-                right: -4px;
+                font-size: 0.6rem; /* Smaller badge */
+                min-width: 16px;
+                height: 16px;
             }
 
             .notification-panel {
-                width: 90%; /* Responsive width */
-                max-width: 300px;
+                width: 280px; /* Slightly narrower for mobile */
                 right: 0.5rem;
-                max-height: 350px;
+                max-height: 400px;
                 overflow-y: auto;
-                border-radius: 10px;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-                margin-top: 0.4rem;
-            }
-
-            .notification-item {
-                font-size: 0.85rem; /* Smaller text */
-                padding: 0.5rem 1rem;
-            }
-
-            .notification-item .icon {
-                width: 24px;
-                height: 24px;
-                font-size: 0.9rem;
             }
 
             .admin-profile {
-                padding: 0.2rem;
+                padding: 0.3rem;
             }
 
             .admin-avatar {
-                width: 32px; /* Smaller avatar */
-                height: 32px;
-                font-size: 0.8rem;
+                width: 36px; /* Smaller avatar */
+                height: 36px;
+                font-size: 0.9rem;
             }
 
-            .admin-info {
-                display: none; /* Hide name/role for cleaner look */
+            .admin-info .name {
+                font-size: 0.85rem; /* Smaller text */
+            }
+
+            .admin-info .role {
+                font-size: 0.65rem;
             }
 
             .dropdown-menu {
-                min-width: 150px;
-                font-size: 0.85rem;
+                min-width: 160px; /* Smaller dropdown */
             }
 
             .stats-grid {
@@ -935,7 +904,7 @@
     </style>
 </head>
 <body>
-    <!-- Hamburger Button - Integrated with Top Bar on Mobile -->
+    <!-- Hamburger Button - Always Visible -->
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar menu">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -946,7 +915,7 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="admin-wrapper">
-        <!-- Sidebar -->
+        <!-- Enhanced Sidebar -->
         <aside class="admin-sidebar" id="adminSidebar">
             <div class="sidebar-header">
                 <button class="sidebar-close-btn" id="sidebarCloseBtn"><i class="fas fa-times"></i></button>
@@ -1109,12 +1078,7 @@
             <!-- Top Bar -->
             <div class="admin-topbar" id="adminTopbar">
                 <div class="topbar-left">
-                    <button class="hamburger-btn" id="hamburgerBtnMobile" aria-label="Toggle sidebar menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <h5><i class="fas fa-tachometer-alt"></i> Dashboard</h5>
+                    <h5><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h5>
                 </div>
                 <div class="topbar-right">
                     <div class="notification-bell position-relative" id="notificationBell">
@@ -1377,7 +1341,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const hamburgerBtnMobile = document.getElementById('hamburgerBtnMobile');
             const sidebar = document.getElementById('adminSidebar');
             const adminMain = document.getElementById('adminMain');
             const overlay = document.getElementById('sidebarOverlay');
@@ -1394,7 +1357,6 @@
             function toggleSidebar() {
                 if (isMobile()) {
                     hamburgerBtn.classList.toggle('collapsed');
-                    hamburgerBtnMobile.classList.toggle('collapsed');
                     sidebar.classList.toggle('active');
                     overlay.classList.toggle('active');
                     adminTopbar.classList.toggle('sidebar-active');
@@ -1410,7 +1372,6 @@
             }
 
             hamburgerBtn.addEventListener('click', toggleSidebar);
-            hamburgerBtnMobile.addEventListener('click', toggleSidebar);
 
             if (sidebarCloseBtn) {
                 sidebarCloseBtn.addEventListener('click', toggleSidebar);
@@ -1431,7 +1392,6 @@
                         adminMain.classList.remove('sidebar-collapsed');
                         if (!sidebar.classList.contains('active')) {
                             hamburgerBtn.classList.remove('collapsed');
-                            hamburgerBtnMobile.classList.remove('collapsed');
                             adminTopbar.classList.remove('sidebar-active');
                         }
                     } else {
