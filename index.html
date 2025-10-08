@@ -518,34 +518,27 @@
         }
 
         .notification-panel {
-            position: absolute;
-            top: calc(100% + 0.5rem);
-            right: 0;
-            width: 320px;
-            max-height: 500px;
+            position: fixed;
+            top: 74px;
+            right: -100%;
+            width: 350px;
+            max-height: calc(100vh - 74px);
             overflow-y: auto;
             background: white;
             border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px 0 0 8px;
+            box-shadow: -4px 0 12px rgba(0,0,0,0.15);
             padding: 0;
             z-index: 1100;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
+            transition: right 0.4s ease;
         }
 
         .notification-panel.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
+            right: 0;
         }
         
         .notification-panel-header {
-            display: none;
+            display: flex;
             padding: 1rem 1.25rem;
             border-bottom: 1px solid #f0f0f0;
             background: var(--bg-cream);
@@ -919,37 +912,14 @@
             }
 
             .notification-panel {
-                position: fixed !important;
-                top: 74px !important;
-                right: 0 !important;
-                left: 0 !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                height: auto !important;
-                max-height: calc(100vh - 74px) !important;
-                transform: translateY(0) !important;
-                transition: opacity 0.3s ease, visibility 0.3s ease !important;
-                background: white !important;
-                border: none !important;
                 border-radius: 0 !important;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                z-index: 1100 !important;
-                overflow-y: auto !important;
-                opacity: 0 !important;
-                visibility: hidden !important;
-                pointer-events: none !important;
+                right: -100% !important;
             }
 
             .notification-panel.active {
-                opacity: 1 !important;
-                visibility: visible !important;
-                pointer-events: auto !important;
-            }
-            
-            .notification-panel-header {
-                display: flex !important;
+                right: 0 !important;
             }
             
             .notification-item {
@@ -1158,53 +1128,6 @@
                     <div class="notification-bell position-relative" id="notificationBell">
                         <i class="fas fa-bell"></i>
                         <span class="badge">5</span>
-                        <div class="notification-panel" id="notificationPanel">
-                            <div class="notification-panel-header">
-                                <h6>Notifications</h6>
-                                <button class="notification-close-btn" id="notificationCloseBtn">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                            <div class="notification-item new">
-                                <div class="icon"><i class="fas fa-shopping-cart"></i></div>
-                                <div>
-                                    <span>New Order Received</span><br>
-                                    <span class="time">2 minutes ago - Order #ORD-1005 from Rahul Sharma</span>
-                                </div>
-                            </div>
-                            <div class="notification-item new">
-                                <div class="icon"><i class="fas fa-user-plus"></i></div>
-                                <div>
-                                    <span>New Customer Registration</span><br>
-                                    <span class="time">15 minutes ago - Priya Patel just signed up</span>
-                                </div>
-                            </div>
-                            <div class="notification-item alert">
-                                <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
-                                <div>
-                                    <span>Low Stock Alert</span><br>
-                                    <span class="time">1 hour ago - Hair Oil is running low on stock</span>
-                                </div>
-                            </div>
-                            <div class="notification-item review">
-                                <div class="icon"><i class="fas fa-star"></i></div>
-                                <div>
-                                    <span>New Review Received</span><br>
-                                    <span class="time">5 hours ago - 5-star review on Herbal Wellness Tablets</span>
-                                </div>
-                            </div>
-                            <div class="notification-item">
-                                <div class="icon"><i class="fas fa-check"></i></div>
-                                <div>
-                                    <span>Order Processed</span><br>
-                                    <span class="time">10 hours ago - Order #ORD-1004</span>
-                                    <span class="mark-read">Mark as read</span>
-                                </div>
-                            </div>
-                            <div class="notification-item text-center">
-                                <a href="#" style="color: var(--primary); text-decoration: none;">View All Notifications</a>
-                            </div>
-                        </div>
                     </div>
                     <div class="dropdown">
                         <div class="admin-profile" id="adminProfileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -1224,6 +1147,55 @@
                             <li><a class="dropdown-item" href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+
+            <!-- Notification Panel - Outside Topbar -->
+            <div class="notification-panel" id="notificationPanel">
+                <div class="notification-panel-header">
+                    <h6>Notifications</h6>
+                    <button class="notification-close-btn" id="notificationCloseBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-item new">
+                    <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div>
+                        <span>New Order Received</span><br>
+                        <span class="time">2 minutes ago - Order #ORD-1005 from Rahul Sharma</span>
+                    </div>
+                </div>
+                <div class="notification-item new">
+                    <div class="icon"><i class="fas fa-user-plus"></i></div>
+                    <div>
+                        <span>New Customer Registration</span><br>
+                        <span class="time">15 minutes ago - Priya Patel just signed up</span>
+                    </div>
+                </div>
+                <div class="notification-item alert">
+                    <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div>
+                        <span>Low Stock Alert</span><br>
+                        <span class="time">1 hour ago - Hair Oil is running low on stock</span>
+                    </div>
+                </div>
+                <div class="notification-item review">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <div>
+                        <span>New Review Received</span><br>
+                        <span class="time">5 hours ago - 5-star review on Herbal Wellness Tablets</span>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <div class="icon"><i class="fas fa-check"></i></div>
+                    <div>
+                        <span>Order Processed</span><br>
+                        <span class="time">10 hours ago - Order #ORD-1004</span>
+                        <span class="mark-read">Mark as read</span>
+                    </div>
+                </div>
+                <div class="notification-item text-center">
+                    <a href="#" style="color: var(--primary); text-decoration: none;">View All Notifications</a>
                 </div>
             </div>
 
