@@ -529,13 +529,53 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            padding: 0.5rem 0;
+            padding: 0;
             z-index: 1100;
             display: none;
         }
 
         .notification-panel.active {
             display: block;
+        }
+        
+        .notification-panel-header {
+            display: none;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #f0f0f0;
+            background: var(--bg-cream);
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .notification-panel-header h6 {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .notification-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .notification-close-btn:hover {
+            background: #f0f0f0;
+            color: var(--primary);
         }
 
         .notification-panel::-webkit-scrollbar {
@@ -557,6 +597,9 @@
             color: var(--text-primary);
             font-size: 0.9rem;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
         }
 
         .notification-item:hover {
@@ -570,8 +613,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 0.75rem;
             font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .notification-item > div:last-child {
+            flex: 1;
         }
 
         .notification-item.new {
@@ -869,18 +916,18 @@
                 position: fixed !important;
                 top: 74px !important;
                 right: 0 !important;
-                left: auto !important;
-                width: 90% !important;
-                max-width: 350px !important;
-                height: calc(100vh - 74px) !important;
+                left: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
                 max-height: calc(100vh - 74px) !important;
-                transform: translateX(100%) !important;
-                transition: transform 0.3s ease !important;
+                transform: none !important;
+                transition: all 0.3s ease !important;
                 background: white !important;
-                border: 1px solid #e0e0e0 !important;
-                border-radius: 8px 0 0 8px !important;
-                box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15) !important;
-                padding: 1rem !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+                padding: 0 !important;
                 margin: 0 !important;
                 z-index: 1100 !important;
                 overflow-y: auto !important;
@@ -888,7 +935,25 @@
 
             .notification-panel.active {
                 display: block !important;
-                transform: translateX(0) !important;
+            }
+            
+            .notification-panel-header {
+                display: flex !important;
+            }
+            
+            .notification-item {
+                padding: 1rem 1.25rem !important;
+                display: flex !important;
+                align-items: flex-start !important;
+                gap: 0.75rem !important;
+            }
+            
+            .notification-item .icon {
+                flex-shrink: 0;
+            }
+            
+            .notification-item > div:last-child {
+                flex: 1;
             }
         }
 
@@ -1083,6 +1148,12 @@
                         <i class="fas fa-bell"></i>
                         <span class="badge">5</span>
                         <div class="notification-panel" id="notificationPanel">
+                            <div class="notification-panel-header">
+                                <h6>Notifications</h6>
+                                <button class="notification-close-btn" id="notificationCloseBtn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
                             <div class="notification-item new">
                                 <div class="icon"><i class="fas fa-shopping-cart"></i></div>
                                 <div>
@@ -1347,6 +1418,7 @@
             const adminTopbar = document.getElementById('adminTopbar');
             const notificationBell = document.getElementById('notificationBell');
             const notificationPanel = document.getElementById('notificationPanel');
+            const notificationCloseBtn = document.getElementById('notificationCloseBtn');
 
             function isMobile() {
                 return window.innerWidth <= 992;
@@ -1450,6 +1522,9 @@
                     } else if (!isMobile() && !sidebar.classList.contains('collapsed')) {
                         toggleSidebar();
                     }
+                    if (notificationPanel.classList.contains('active')) {
+                        notificationPanel.classList.remove('active');
+                    }
                 }
             });
 
@@ -1491,9 +1566,16 @@
                 e.stopPropagation();
                 notificationPanel.classList.toggle('active');
             });
+            
+            if (notificationCloseBtn) {
+                notificationCloseBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    notificationPanel.classList.remove('active');
+                });
+            }
 
             document.addEventListener('click', function(e) {
-                if (!notificationBell.contains(e.target)) {
+                if (!notificationBell.contains(e.target) && !notificationPanel.contains(e.target)) {
                     notificationPanel.classList.remove('active');
                 }
             });
