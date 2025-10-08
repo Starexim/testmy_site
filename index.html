@@ -21,7 +21,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background: var(--bg-cream);
             overflow-x: hidden;
         }
@@ -275,7 +275,7 @@
         }
 
         .sidebar-header h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: Georgia, 'Times New Roman', serif;
             color: var(--accent);
             margin: 0;
             display: flex;
@@ -530,11 +530,18 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 0;
             z-index: 1100;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
         }
 
         .notification-panel.active {
-            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
         }
         
         .notification-panel-header {
@@ -920,8 +927,8 @@
                 max-width: 100% !important;
                 height: auto !important;
                 max-height: calc(100vh - 74px) !important;
-                transform: none !important;
-                transition: all 0.3s ease !important;
+                transform: translateY(0) !important;
+                transition: opacity 0.3s ease, visibility 0.3s ease !important;
                 background: white !important;
                 border: none !important;
                 border-radius: 0 !important;
@@ -930,10 +937,15 @@
                 margin: 0 !important;
                 z-index: 1100 !important;
                 overflow-y: auto !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
             }
 
             .notification-panel.active {
-                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
             }
             
             .notification-panel-header {
@@ -1569,6 +1581,7 @@
             if (notificationCloseBtn) {
                 notificationCloseBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    e.preventDefault();
                     notificationPanel.classList.remove('active');
                 });
             }
@@ -1577,6 +1590,11 @@
                 if (!notificationBell.contains(e.target) && !notificationPanel.contains(e.target)) {
                     notificationPanel.classList.remove('active');
                 }
+            });
+            
+            // Prevent notification panel from closing when clicking inside it
+            notificationPanel.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
 
             const markReadLinks = document.querySelectorAll('.mark-read');
